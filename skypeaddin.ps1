@@ -1,5 +1,5 @@
    ##
-   [string]$addin='Gecko.Ephorte.Outlook.Main'
+   [string]$addin='UcAddin.LyncAddin.1'
    [string]$regpath='HKCU:\Software\Microsoft\Office\16.0\Outlook\Resiliency\DoNotDisableAddinList'
    [int]$value=1
    
