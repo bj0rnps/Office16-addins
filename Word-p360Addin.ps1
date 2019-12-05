@@ -1,7 +1,3 @@
-
-
-###word
-
 #common
 [string]$addin='SI.Client.Word2007'
 
