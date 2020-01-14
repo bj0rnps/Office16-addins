@@ -1,29 +1,15 @@
-
-<#start old
-[string]$addin='SI.Outlook.Sidebar.Container'
-[string]$keypath='HKCU:\Software\Microsoft\Office\16.0\Outlook\Resiliency'
-[string]$regpath='HKCU:\Software\Microsoft\Office\16.0\Outlook\Resiliency\DoNotDisableAddinList'
-[int]$value=1
-New-Item -Name 'DoNotDisableAddinList' -Path $keypath
-New-ItemProperty -Path $regpath -Name $addin -PropertyType dword -Value $value
-#end old#>
-
-
-
-
-
 #common
 [string]$addin='SI.Outlook.Sidebar.Container'
 
 #Resiliency
 
-[string]$Resiliency_key= 'HKCU:\Software\Microsoft\Office\16.0\Outlook\Resiliency'
-[string]$DoNotDisableAddinList_key='HKCU:\Software\Microsoft\Office\16.0\Outlook\Resiliency\DoNotDisableAddinList'
+[string]$Resiliency_key= 'HKCU:\Software\Microsoft\Office\16.0\Outlook\Resiliency' #test
+[string]$DoNotDisableAddinList_key='HKCU:\Software\Microsoft\Office\16.0\Outlook\Resiliency\DoNotDisableAddinList'#test
 [int]$Resiliency_value=1
 
 #Load behavior
 [string]$loadbehavior_key='HKCU:\SOFTWARE\Microsoft\Office\Outlook\addins\'+$addin #test this path
-[string]$addinlist_key='HKCU:\SOFTWARE\Microsoft\Office\Outlook\addins'
+[string]$addinlist_key='HKCU:\SOFTWARE\Microsoft\Office\Outlook\addins' #test
 [int]$loadbehavior_value=3 
 
 
