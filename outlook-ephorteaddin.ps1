@@ -17,22 +17,21 @@
 
 
 if (!(Test-Path $DoNotDisableAddinList_key)) {
- 
-New-Item -Path $DoNotDisableAddinList_key -Name 'DoNotDisableAddinList' 
+ New-Item -Path $DoNotDisableAddinList_key -Name 'DoNotDisableAddinList' 
 }
 
 if ((Get-ItemProperty -Name $addin -Path $DoNotDisableAddinList_key).$addin -ne $Resiliency_value ){ 
-New-ItemProperty -Path $DoNotDisableAddinList_key -Name $addin -Value $Resiliency_value -Verbose -Force
+ New-ItemProperty -Path $DoNotDisableAddinList_key -Name $addin -Value $Resiliency_value -Verbose -Force
 }
 
 
 
  if (!(Test-Path ($loadbehavior_key) )){
-   New-Item -Path ($loadbehavior_key ) 
+ New-Item -Path ($loadbehavior_key ) 
      }
 
  if ((Get-ItemProperty -Path $loadbehavior_key -Name 'LoadBehavior' ).loadbehavior -ne $loadbehavior_value){
-   New-ItemProperty -Path ($loadbehavior_key)  -Name 'LoadBehavior' -Value $loadbehavior_value -Verbose -Force
+ New-ItemProperty -Path ($loadbehavior_key)  -Name 'LoadBehavior' -Value $loadbehavior_value -Verbose -Force
   
   }
   
