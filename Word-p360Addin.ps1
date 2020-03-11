@@ -1,4 +1,5 @@
-#common
+#common#
+#rember to remove diableditems list entries
 [string]$addin='SI.Client.Word2007'
 
 #Resiliency
