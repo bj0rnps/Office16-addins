@@ -4,6 +4,7 @@
 #Resiliency
 
 [string]$Resiliency_key= 'HKCU:\Software\Microsoft\Office\16.0\Word\Resiliency\'
+#                                   HKCU:\SOFTWARE\Microsoft\Office\16.0\Word\Resiliency
 [string]$DoNotDisableAddinList_key='HKCU:\Software\Microsoft\Office\16.0\Word\Resiliency\DoNotDisableAddinList'#test this path
 [int]$Resiliency_value=1
 
@@ -16,22 +17,26 @@
 
 
 
-if (!(Test-Path $DoNotDisableAddinList_key)) {
 
-New-Item -Path $DoNotDisableAddinList_key -Name 'DoNotDisableAddinList'
-}
 
 if (!(Test-Path $loadbehavior_key)){
    New-Item -Path $loadbehavior_key                                         
       
  }
- if (!(Test-Path ($loadbehavior_key) )){
-   New-Item -Path ($loadbehavior_key )
+ if (!(Test-Path ($Resiliency_key) )){
+   New-Item -Path ($Resiliency_key )
 
   }
 
-New-ItemProperty -Path $DoNotDisableAddinList_key -Name $addin -Value $Resiliency_value
 
-New-ItemProperty -Path ($loadbehavior_key)  -Name 'LoadBehavior' -Value $loadbehavior_value
+if (!(Test-Path $DoNotDisableAddinList_key)) {
+
+New-Item -Path $DoNotDisableAddinList_key 
+}
+
+New-ItemProperty -Path $DoNotDisableAddinList_key -Name $addin -Value $Resiliency_value -Force
+ 
+New-ItemProperty -Path ($loadbehavior_key)  -Name 'LoadBehavior' -Value $loadbehavior_value -Force
+
 
 
